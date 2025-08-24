@@ -50,5 +50,6 @@
 @media (max-width: 768px) {
   .navBtn {
     gap: 0.5rem;
+    padding: 1.4rem 0.8rem;
   }
 }
