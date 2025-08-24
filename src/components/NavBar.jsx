@@ -9,7 +9,7 @@ export default function NavBar() {
   return (
     <nav className={`${styles.nav} container`}>
       <a href="/" className={styles.navLogo}>
-        <img src={logo} alt="nav logo" />
+        <img src={logo} alt="nav logo" className={styles.logo} />
       </a>
       <div className={styles.navButtons}>
         <Button className={`${styles.navBtn} ${styles.btnLeft}`}>
