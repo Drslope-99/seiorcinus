@@ -1,0 +1,44 @@
+:root {
+  --pink: #ff5f7e;
+  --red: #fd0232;
+  --orange: #ff4433;
+  --purple: #7e6aff;
+  --cream: #fff6e4;
+  --light-blue: #bad8ff;
+  --light-pink: #ffdae1;
+
+  --white: #fff;
+  --dark: #0b0c10;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  line-height: 1.5;
+  background-color: var(--dark);
+}
+
+.container {
+  max-width: 160rem;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 50%;
+  }
+}

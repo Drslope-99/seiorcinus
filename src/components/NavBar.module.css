@@ -1,0 +1,43 @@
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 8rem;
+}
+
+.navLog {
+  display: inline-block;
+}
+
+.navButtons {
+  display: flex;
+  gap: 2rem;
+}
+
+.navBtn {
+  padding: 1.2rem 2.4rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border: 0.1rem solid currentColor;
+  border-radius: 3rem;
+  font-size: 1.6rem;
+  color: var(--white);
+  transition: 0.2s transform;
+  cursor: pointer;
+}
+
+.navBtn:active {
+  transform: scale(0.97);
+}
+
+.btnLeft {
+  background: linear-gradient(45deg, #515876, #0b0c10);
+}
+
+.btnRight {
+  background-color: #ff4433;
+}
+
+/*  background: linear-gradient(45deg, #ff6a00, #ee0979); */

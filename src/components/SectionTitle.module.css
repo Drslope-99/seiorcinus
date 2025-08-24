@@ -1,0 +1,7 @@
+.sectionTitle {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: var(--orange);
+  text-align: center;
+  margin-block: 1rem;
+}
