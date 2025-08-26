@@ -62,7 +62,8 @@
   position: relative;
   width: 100%;
 
-  height: auto;
+  /* height: auto; */
+  height: 200%;
   padding-block: 5rem 0;
 }
 
