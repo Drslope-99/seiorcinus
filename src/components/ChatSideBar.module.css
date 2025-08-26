@@ -1,0 +1,91 @@
+.chatSidebar {
+  height: 100dvh;
+  background-color: var(--dark-ui);
+  padding: 2rem 3rem;
+}
+
+.chatSidebarBtn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  outline: none;
+  padding: 1.2rem 1.8rem;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  border-radius: 1rem;
+  color: var(--white);
+  background: linear-gradient(45deg, #ff0000, #fffdd0);
+  margin-block: 2rem;
+  cursor: pointer;
+  z-index: 1;
+  transition: 0.2s all;
+}
+
+/* Glowing gradient background (covers entire button) */
+.chatSidebarBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #ff0000, #fffdd0);
+  border-radius: 1rem;
+  z-index: -2;
+  animation: glowing 3s ease-in-out infinite;
+}
+
+/* Dark inner background that creates the "border" effect */
+.chatSidebarBtn::after {
+  content: "";
+  position: absolute;
+  top: 0.2rem; /* Border thickness */
+  left: 0.2rem;
+  right: 0.2rem;
+  bottom: 0.2rem;
+  background-color: var(--dark-ui);
+  border-radius: 0.8rem; /* Slightly smaller to reveal border */
+  z-index: -1;
+}
+
+.chatSidebarBtn:active {
+  transform: scale(0.98);
+}
+
+/* Glowing animation */
+@keyframes glowing {
+  0% {
+    opacity: 0.7;
+    filter: blur(4px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 0.7;
+    filter: blur(4px);
+  }
+}
+
+/* Ensure text stays on top */
+.chatSidebarBtn > * {
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 680px) {
+  .chatSidebar {
+    position: fixed;
+    width: 70%;
+    height: 100dvh;
+    transform: translateX(-100%);
+    transition: 0.3s all;
+  }
+  .chatSidebar.active {
+    transform: translateX(0);
+  }
+}

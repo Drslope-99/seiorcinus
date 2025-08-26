@@ -2,6 +2,7 @@ import SectionSubTitle from "./SectionSubTitle";
 import SectionTitle from "./SectionTitle";
 import styles from "./FeatureSection.module.css";
 import FeatureCard from "./FeatureCard";
+import Button from "./Button";
 
 export default function FeatureSection() {
   return (
@@ -31,6 +32,9 @@ export default function FeatureSection() {
           description="Queries powered by trusted Sei blockchain APIs with zero data compromise."
         />
       </div>
+      {/* <Button>
+        <p>See it in action</p>
+      </Button> */}
     </section>
   );
 }

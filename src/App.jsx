@@ -1,23 +1,15 @@
-import NavBar from "./components/NavBar";
-import Header from "./Layouts/Header";
-import Button from "./components/Button";
-import Hero from "./components/Hero";
-import MainContent from "./Layouts/MainContent";
-import InfoSection from "./components/InfoSection";
-import FeatureSection from "./components/FeatureSection";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import ChatPage from "./pages/ChatPage";
 
 function App() {
   return (
-    <>
-      <Header>
-        <NavBar />
-        <Hero />
-      </Header>
-      <MainContent>
-        <InfoSection />
-        <FeatureSection />
-      </MainContent>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/prompt" element={<ChatPage />} />
+      </Routes>
+    </Router>
   );
 }
 
