@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import styles from "./NavBar.module.css";
 import logo from "../assets/Logo.png";
 import Button from "./Button";
@@ -10,9 +10,9 @@ export default function NavBar() {
   const navigate = useNavigate();
   return (
     <nav className={`${styles.nav} container`}>
-      <a href="/" className={styles.navLogo}>
+      <Link href="/" className={styles.navLogo}>
         <img src={logo} alt="nav logo" className={styles.logo} />
-      </a>
+      </Link>
       <div className={styles.navButtons}>
         <Button
           className={`${styles.navBtn} ${styles.btnLeft}`}
