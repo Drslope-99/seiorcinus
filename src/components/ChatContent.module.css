@@ -61,8 +61,8 @@
 .chatInterface {
   position: relative;
   width: 100%;
-  /* border: 1px solid red; */
-  height: 200%;
+
+  height: 100%;
   padding-block: 5rem;
 }
 
