@@ -1,7 +1,21 @@
 .chatSidebar {
   height: 100dvh;
   background-color: var(--dark-ui);
-  padding: 2rem 3rem;
+  padding: 3rem 3rem;
+  position: sticky;
+  z-index: 1000;
+}
+
+.closeBtn {
+  display: none;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem;
+  border: none;
+  outline: none;
+  background: var(--dark-ui);
+  cursor: pointer;
 }
 
 .chatSidebarBtn {
@@ -87,5 +101,8 @@
   }
   .chatSidebar.active {
     transform: translateX(0);
+  }
+  .closeBtn {
+    display: block;
   }
 }

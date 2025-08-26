@@ -1,7 +1,9 @@
 .chatContent {
   padding: 2rem 3rem;
   color: var(--white);
-  min-height: 100dvh;
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
 }
 
 .chatHeader {
@@ -9,9 +11,16 @@
   display: flex;
   width: 100%;
   justify-content: space-between;
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  padding: 2rem;
 }
 
 .navToggle {
+  display: none;
   background-color: transparent;
   border: none;
   outline: none;
@@ -24,6 +33,7 @@
 }
 
 .btnCredits {
+  margin-left: auto;
   padding: 1.2rem 2.4rem;
   display: inline-flex;
   justify-content: center;
@@ -38,8 +48,43 @@
   background: linear-gradient(45deg, #515876, #0b0c10);
 }
 
+.chatBox {
+  max-width: 90rem;
+  min-height: 30rem;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--dark-ui);
+  margin: 2rem auto;
+}
+
+.chatInterface {
+  position: relative;
+  width: 100%;
+  /* border: 1px solid red; */
+  height: 200%;
+  padding-block: 5rem;
+}
+
+.chatMessage {
+  background: var(--dark-ui);
+  color: var(--cream);
+  font-size: 1.6rem;
+  padding: 1rem 1.5rem;
+  border-radius: 0.5rem;
+  display: inline-block;
+  max-width: 50rem;
+  box-shadow: var(--dark-shadow);
+  word-wrap: break-word;
+  margin-block: 1rem;
+  margin-left: auto;
+}
+
 @media (max-width: 680px) {
   .chatContent {
     grid-column: 1 / -1;
+  }
+  .navToggle {
+    display: block;
   }
 }

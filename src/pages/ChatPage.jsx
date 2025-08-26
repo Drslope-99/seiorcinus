@@ -2,6 +2,7 @@ import { useState } from "react";
 import ChatLayout from "../Layouts/ChatLayout";
 import ChatSideBar from "../components/ChatSideBar";
 import ChatContent from "../components/ChatContent";
+import Overlay from "../components/Overlay";
 
 export default function ChatPage() {
   const [navOpen, setNavOpen] = useState(false);
@@ -9,10 +10,11 @@ export default function ChatPage() {
     setNavOpen(true);
     console.log(navOpen);
   };
+
   return (
     <ChatLayout>
-      <ChatSideBar isOpen={navOpen} />
-      <ChatContent onOpenNav={handleNavOpen} />
+      <ChatSideBar isOpen={navOpen} onClose={() => setNavOpen(false)} />
+      <ChatContent isOpne={navOpen} onOpenNav={handleNavOpen} />
     </ChatLayout>
   );
 }

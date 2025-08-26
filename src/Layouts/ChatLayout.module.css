@@ -1,4 +1,5 @@
 .chatContainer {
   display: grid;
   grid-template-columns: 30rem 1fr;
+  overflow: hidden;
 }
