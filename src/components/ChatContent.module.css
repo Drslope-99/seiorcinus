@@ -54,7 +54,7 @@
   height: auto;
   display: flex;
   flex-direction: column;
-  border: 1px solid var(--dark-ui);
+  /* border: 1px solid var(--dark-ui); */
   margin: 2rem auto;
 }
 
@@ -87,6 +87,15 @@
 .chatOutputMessage {
   font-size: 1.7rem;
   margin-top: 2rem;
+}
+
+.chatErrorMessage {
+  font-size: 1.6rem;
+  color: var(--cream);
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin-block: 2rem;
 }
 
 @media (max-width: 680px) {

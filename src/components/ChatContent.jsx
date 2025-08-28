@@ -4,7 +4,9 @@ import React from "react";
 import styles from "./ChatContent.module.css";
 import { RiMenu2Line } from "react-icons/ri";
 import { HiOutlineCircleStack } from "react-icons/hi2";
+import { CiFaceFrown } from "react-icons/ci";
 import ChatInputElement from "./ChatInputElement";
+import Loader from "./Loader";
 
 const url =
   "https://orcinus-drslope-999920-k9hatlqz.leapcell.dev/sei_orcinus_agent";
@@ -13,12 +15,16 @@ export default function ChatContent({ isOpne, onOpenNav }) {
   const [chats, setChats] = useState([]);
   const [prompt, setPrompt] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChatSubmit = async (e) => {
     e.preventDefault();
     if (!prompt) {
       return;
     }
+
+    setIsLoading(true);
+    setErrorMessage("");
     try {
       const response = await fetch(url, {
         method: "POST",
@@ -41,9 +47,10 @@ export default function ChatContent({ isOpne, onOpenNav }) {
       setPrompt("");
     } catch (error) {
       setErrorMessage(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
-  console.log(chats);
 
   return (
     <div className={styles.chatContent}>
@@ -61,8 +68,11 @@ export default function ChatContent({ isOpne, onOpenNav }) {
       </header>
       <section className={styles.chatInterface}>
         <div className={styles.chatBox}>
-          <ChatMessage />
-          <ChatMessage />
+          {chats.map((chat) => (
+            <ChatMessage message={chat} key={chat.prompt} />
+          ))}
+          {isLoading && <Loader />}
+          {errorMessage && <ErrorMessage message={errorMessage} />}
         </div>
         <form onSubmit={handleChatSubmit} className={styles.chatForm}>
           <ChatInputElement
@@ -75,18 +85,21 @@ export default function ChatContent({ isOpne, onOpenNav }) {
   );
 }
 
-function ChatMessage() {
+function ChatMessage({ message }) {
   return (
     <article className={styles.chatMessage}>
-      <p className={styles.chatInputMessage}>what is seiorcinus</p>
-      <p className={styles.chatOutputMessage}>
-        here is the chat answer Lorem ipsum dolor sit amet consectetur
-        adipisicing elit. Voluptatibus deleniti eos numquam animi non eaque
-        atque porro aspernatur illo, ipsum debitis quaerat iure nulla quasi!
-        Perferendis eius cumque nostrum magni quas omnis eligendi vitae eos
-        rerum explicabo recusandae, repellendus excepturi minus expedita nisi
-        libero sed incidunt possimus enim sunt laudantium.
-      </p>
+      <p className={styles.chatInputMessage}>{message.prompt}</p>
+      <p className={styles.chatOutputMessage}>{message.output}</p>
     </article>
+  );
+}
+
+function ErrorMessage({ message }) {
+  return (
+    <p className={styles.chatErrorMessage}>
+      <CiFaceFrown size={24} color="#fff6e4" />
+      Oops!,
+      {message}
+    </p>
   );
 }
