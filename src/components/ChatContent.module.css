@@ -62,23 +62,31 @@
   position: relative;
   width: 100%;
 
-  /* height: auto; */
-  height: 200%;
+  height: auto;
   padding-block: 5rem 0;
 }
 
 .chatMessage {
+  margin-block: 2rem;
+}
+
+.chatInputMessage {
   background: var(--dark-ui);
   color: var(--cream);
   font-size: 1.6rem;
   padding: 1rem 1.5rem;
   border-radius: 0.5rem;
-  display: inline-block;
   max-width: 50rem;
+  width: fit-content;
   box-shadow: var(--dark-shadow);
   word-wrap: break-word;
   margin-block: 1rem;
   margin-left: auto;
+}
+
+.chatOutputMessage {
+  font-size: 1.7rem;
+  margin-top: 2rem;
 }
 
 @media (max-width: 680px) {
