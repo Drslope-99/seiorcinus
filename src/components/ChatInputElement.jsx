@@ -12,7 +12,7 @@ export default function ChatInputElement({ value, onChange, onDelete }) {
         onChange={onChange}
       />
       {value && (
-        <button className={styles.deleteBtn} onClick={onDelete}>
+        <button type="button" className={styles.deleteBtn} onClick={onDelete}>
           <TiDelete size={24} color="#ff4433" />
         </button>
       )}

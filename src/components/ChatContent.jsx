@@ -79,8 +79,8 @@ export default function ChatContent({ isOpne, onOpenNav }) {
           <ChatInputElement
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
-            onDelete={(e) => {
-              e.preventDefault();
+            onDelete={() => {
+              // e.preventDefault();
               setPrompt("");
             }}
           />
