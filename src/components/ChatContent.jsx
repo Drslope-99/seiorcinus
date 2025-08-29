@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import React from "react";
 
 import styles from "./ChatContent.module.css";
@@ -18,12 +18,16 @@ export default function ChatContent({ isOpne, onOpenNav }) {
   const [prompt, setPrompt] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const inputRef = useRef(null);
 
   const handleChatSubmit = async (e) => {
     e.preventDefault();
-    if (!prompt) {
-      return;
+
+    if (inputRef.current) {
+      inputRef.current.blur();
     }
+
+    if (!prompt) return;
 
     setIsLoading(true);
     setErrorMessage("");
@@ -77,10 +81,10 @@ export default function ChatContent({ isOpne, onOpenNav }) {
         </div>
         <form onSubmit={handleChatSubmit} className={styles.chatForm}>
           <ChatInputElement
+            ref={inputRef}
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
             onDelete={() => {
-              // e.preventDefault();
               setPrompt("");
             }}
           />

@@ -1,7 +1,7 @@
 import styles from "./ChatInputElement.module.css";
 import { TiDelete } from "react-icons/ti";
 
-export default function ChatInputElement({ value, onChange, onDelete }) {
+export default function ChatInputElement({ value, onChange, onDelete, ref }) {
   return (
     <div className={styles.searchInputContainer}>
       <input
@@ -10,6 +10,7 @@ export default function ChatInputElement({ value, onChange, onDelete }) {
         placeholder="what is the price of sei token"
         value={value}
         onChange={onChange}
+        ref={ref}
       />
       {value && (
         <button type="button" className={styles.deleteBtn} onClick={onDelete}>
