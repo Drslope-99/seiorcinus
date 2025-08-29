@@ -7,6 +7,8 @@ import { HiOutlineCircleStack } from "react-icons/hi2";
 import { CiFaceFrown } from "react-icons/ci";
 import ChatInputElement from "./ChatInputElement";
 import Loader from "./Loader";
+import { FaRegCopy } from "react-icons/fa";
+import { FaCheck } from "react-icons/fa6";
 
 const url =
   "https://orcinus-drslope-999920-k9hatlqz.leapcell.dev/sei_orcinus_agent";
@@ -51,7 +53,6 @@ export default function ChatContent({ isOpne, onOpenNav }) {
       setIsLoading(false);
     }
   };
-
   return (
     <div className={styles.chatContent}>
       <header className={styles.chatHeader}>
@@ -78,6 +79,10 @@ export default function ChatContent({ isOpne, onOpenNav }) {
           <ChatInputElement
             value={prompt}
             onChange={(e) => setPrompt(e.target.value)}
+            onDelete={(e) => {
+              e.preventDefault();
+              setPrompt("");
+            }}
           />
         </form>
       </section>
@@ -86,10 +91,39 @@ export default function ChatContent({ isOpne, onOpenNav }) {
 }
 
 function ChatMessage({ message }) {
+  const [isCopied, setIsCopied] = useState(false);
+
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(message.output);
+      setIsCopied(true);
+      // reset after 1.5s
+      setTimeout(() => {
+        setIsCopied(false);
+      }, 1500);
+    } catch (err) {
+      console.error("Copy failed:", err);
+    }
+  };
+
   return (
     <article className={styles.chatMessage}>
       <p className={styles.chatInputMessage}>{message.prompt}</p>
       <p className={styles.chatOutputMessage}>{message.output}</p>
+      <footer className={styles.chatActions}>
+        <button className={styles.copyBtn} onClick={handleCopy}>
+          {isCopied ? (
+            <>
+              <FaCheck /> copied
+            </>
+          ) : (
+            <>
+              <FaRegCopy size={20} />
+              copy
+            </>
+          )}
+        </button>
+      </footer>
     </article>
   );
 }

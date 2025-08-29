@@ -98,6 +98,28 @@
   margin-block: 2rem;
 }
 
+.chatActions {
+  margin-top: 1rem;
+}
+
+.copyBtn {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--cream);
+  font-size: 1.5rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding-block: 1rem;
+  cursor: pointer;
+  transition: 0.1s transform;
+}
+.copyBtn:active {
+  transform: scale(0.97);
+}
+
 @media (max-width: 680px) {
   .chatContent {
     grid-column: 1 / -1;

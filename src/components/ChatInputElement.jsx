@@ -1,7 +1,7 @@
-import React from "react";
 import styles from "./ChatInputElement.module.css";
+import { TiDelete } from "react-icons/ti";
 
-export default function ChatInputElement({ value, onChange }) {
+export default function ChatInputElement({ value, onChange, onDelete }) {
   return (
     <div className={styles.searchInputContainer}>
       <input
@@ -11,6 +11,11 @@ export default function ChatInputElement({ value, onChange }) {
         value={value}
         onChange={onChange}
       />
+      {value && (
+        <button className={styles.deleteBtn} onClick={onDelete}>
+          <TiDelete size={24} color="#ff4433" />
+        </button>
+      )}
     </div>
   );
 }

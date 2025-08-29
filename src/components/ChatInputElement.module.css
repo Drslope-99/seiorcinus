@@ -49,3 +49,14 @@
   /* color: var(--cream); */
   color: #8c8c8c;
 }
+
+.deleteBtn {
+  position: absolute;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  top: 50%;
+  right: 2rem;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
