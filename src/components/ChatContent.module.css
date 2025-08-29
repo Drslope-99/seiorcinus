@@ -129,6 +129,6 @@
     display: block;
   }
   .chatHeader {
-    background-color: var(--dark-ui);
+    background-color: var(--dark);
   }
 }
